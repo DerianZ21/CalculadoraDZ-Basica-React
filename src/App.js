@@ -21,16 +21,21 @@ function App() {
   const calcular = () =>{
 
     var regex = /^[*/.]|\*{2,}|\/{2,}|\.{2,}|[*/.]$/;
-    var regexSimbolos = /[-/*+]+/;  
+    var regexNumeros = /\d+/;  
 
     if (!input) {
-      alert("Por favor agregar valores para realizar cálculos");
-    } else if (regex.test(input)) {
-      alert("La sintaxis de la operación es incorrecta, por favor corrija");
-    } else if (!regexSimbolos.test(input)) {
-      alert("por favor para realizar poner operadores para realizar las operaciones");
-    } else{
-      setInput(evaluate(input));
+      alert("Por favor, agregar valores para realizar cálculos");
+    } 
+
+    else if (!regexNumeros.test(input)) {
+      alert("Para realizar operaciones es importante escribir números");
+    } 
+    
+    else if (regex.test(input)) {
+      alert("La sintaxis de la operación es incorrecta, ingrese nuevamente la operación");
+    } 
+    else{
+      setInput(evaluate(input).toString());
     }
     
   };
